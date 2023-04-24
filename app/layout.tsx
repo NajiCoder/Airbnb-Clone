@@ -1,7 +1,9 @@
 import ClientOnly from "./components/ClientOnly";
+import RegisterModal from "./components/modals/RegisterModal";
 import Navbar from "./components/navbar/Navbar";
 import "./globals.css";
 import { Nunito } from "next/font/google";
+import ToasterProvider from "./providers/ToasterProvider";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -21,6 +23,8 @@ export default function RootLayout({
         {/* Navbar */}
         {/* wrap the navbar in the ClientOnly component to prevent the hydration error from happening */}
         <ClientOnly>
+          <ToasterProvider />
+          <RegisterModal />
           <Navbar />
         </ClientOnly>
 
